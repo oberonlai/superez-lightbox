@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-Hant">
+    <head>
+        <title>Super Easy Lightbox</title>
+        <meta charset="utf-8">
+        <style>
+            .lb-content{display:none;position:fixed;top:50%;left:50%;width:500px;height:500px;margin-top:-250px;margin-left:-250px;background:#fff;z-index:1000}
+            .lb-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(0,0,0,.7);z-index:999}
+            a.lb-close{position:absolute;top:-7px;right:-7px;width:30px;height:30px;background:url(https://cdn0.iconfinder.com/data/icons/round-ui-icons/128/close_red.png) 0 0 no-repeat;background-size:cover;cursor:pointer}
+        </style>
+    </head>
+    <body>
+        <a class="lb-btn" href="#">點擊展開燈箱的按鈕</a>
+        <div class="lb-content">
+            這邊放燈箱要出現的東西
+        </div>
+    </body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            function lightbox(){$("body").append('<div class="lb-overlay lb-close"></div>'),$(".lb-content").append('<a class="lb-close"></a>'),$(".lb-btn").click(function(l){$(".lb-overlay").fadeIn(),$(".lb-content").fadeIn(),l.preventDefault()}),$(".lb-close").click(function(l){$(".lb-content").fadeOut(),$(".lb-overlay").fadeOut(),l.preventDefault()})}
+            lightbox();
+        });
+    </script>
+</html>
